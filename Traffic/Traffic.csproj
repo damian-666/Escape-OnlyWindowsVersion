@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B8E54D3-8816-48C7-82D2-B093DCAC1DA6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Traffic</RootNamespace>
+    <AssemblyName>Traffic</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Windows\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Windows\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoGame.Framework.WindowsDX.3.6.0.1625\lib\net40\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\Base\Action.cs" />
+    <Compile Include="Actions\Base\Composite.cs" />
+    <Compile Include="Actions\Base\Conditional.cs" />
+    <Compile Include="Actions\Base\Controller.cs" />
+    <Compile Include="Actions\Base\Generic.cs" />
+    <Compile Include="Actions\Base\Loop.cs" />
+    <Compile Include="Actions\Base\Manager.cs" />
+    <Compile Include="Actions\Base\Parallel.cs" />
+    <Compile Include="Actions\Base\Repeated.cs" />
+    <Compile Include="Actions\Base\Sequence.cs" />
+    <Compile Include="Actions\Base\SequenceInitial.cs" />
+    <Compile Include="Actions\Base\Sleep.cs" />
+    <Compile Include="Actions\Block.cs" />
+    <Compile Include="Actions\ChangeFreeLane.cs" />
+    <Compile Include="Actions\SpeedControl.cs" />
+    <Compile Include="Actions\ChangeLane.cs" />
+    <Compile Include="Actions\Input.cs" />
+    <Compile Include="Actions\Overtake.cs" />
+    <Compile Include="Actions\Shrink.cs" />
+    <Compile Include="AnimatedTexture.cs" />
+    <Compile Include="Cars\Blinker.cs" />
+    <Compile Include="Cars\Bounds.cs" />
+    <Compile Include="Cars\Car.cs" />
+    <Compile Include="Cars\Lights.cs" />
+    <Compile Include="Cars\Player.cs" />
+    <Compile Include="Cars\Police.cs" />
+    <Compile Include="Cars\Weights\Heavy.cs" />
+    <Compile Include="Cars\Weights\Light.cs" />
+    <Compile Include="Cars\Weights\Medium.cs" />
+    <Compile Include="Cars\Weights\Weight.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Director.cs" />
+    <Compile Include="Drivers\Common.cs" />
+    <Compile Include="Drivers\Driver.cs" />
+    <Compile Include="Drivers\Player.cs" />
+    <Compile Include="Drivers\Police.cs" />
+    <Compile Include="Drivers\SafeZone.cs" />
+    <Compile Include="Indicators.cs" />
+    <Compile Include="Lane.cs" />
+    <Compile Include="Manager.cs" />
+    <Compile Include="Object.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Road.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fluid\Fluid.csproj">
+      <Project>{2e5e3b33-8073-4a96-8fdb-21bcac71d756}</Project>
+      <Name>Fluid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{9e4ff996-10da-47c7-8008-1a4392f32ea5}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics.PackedVector;
 using Tools.Markers;
 using Point = Microsoft.Xna.Framework.Point;
 
+using System.Diagnostics;
+
 namespace Fluid
 {
     public class Data : Unit
@@ -37,13 +39,24 @@ namespace Fluid
         //-----------------------------------------------------------------
         public void Process(RenderTarget2D texture)
         {
-            Copy(texture);
-           // input.GetData(data);
 
-    
-           // Draw();
-            // DrawStreamline();
-           //  Debug();
+            try
+            {
+                Copy(texture);
+                input.GetData(data);
+
+
+                Draw();
+                DrawStreamline();
+                DebugDrawCells();
+
+            }
+
+            catch (Exception exc)
+            {
+                System.Diagnostics.Debug.WriteLine("error in fluid Process " + exc.Message);
+
+            }
         }
 
         //------------------------------------------------------------------
@@ -197,7 +210,7 @@ namespace Fluid
         }
 
         //------------------------------------------------------------------
-        public void Debug()
+        public void DebugDrawCells()
         {
             List<HalfVector4> list = data.ToList();
             float min = list.Max(vector4 => vector4.ToVector4().X);

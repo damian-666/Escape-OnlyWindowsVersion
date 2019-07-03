@@ -1,0 +1,16 @@
+diff --git "a/MonoGame.Framework/Graphics/GraphicsExtensions.cs" "b/MonoGame.Framework/Graphics/GraphicsExtensions.cs"
+index 077faccde..12ed485e3 100644
+--- "a/MonoGame.Framework/Graphics/GraphicsExtensions.cs"
++++ "b/MonoGame.Framework/Graphics/GraphicsExtensions.cs"
+@@ -814,9 +814,10 @@ namespace Microsoft.Xna.Framework.Graphics
+                 case SurfaceFormat.Bgr32:
+                 case SurfaceFormat.Bgr32SRgb:
+                     return 4;
++                case SurfaceFormat.HdrBlendable:
+                 case SurfaceFormat.HalfVector4:
+                 case SurfaceFormat.Rgba64:
+-                case SurfaceFormat.Vector2:
++                case SurfaceFormat.Vector2:  
+                     return 8;
+                 case SurfaceFormat.Vector4:
+                     return 16;

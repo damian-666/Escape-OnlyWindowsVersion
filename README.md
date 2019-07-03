@@ -9,7 +9,7 @@ Put back fluid, built vs monogame.
 
 Issue with the data type, hidef is 4 packed floats, its not working.
 
-With one tiny change to Monogame I could get game running but fluid shader not doing anything.
+With one tiny change to Monogame I could get game running but fluid shader not doing anything.  The change is at>>> PS in this readme...
 
 The velocity field remains at zero, and the debug code to draw arrows does work.
 
@@ -28,6 +28,22 @@ NOTE.. monograme dev branch is currently in high flux, they are removing protobu
 I was able to run protobuild and just build MG.  I can provide my branch of MG if it will save you any time.
 
 It apprears the float shader data type is still not fixed in MG main branch.
+
+
+
+
+>>>  ( patch file added to this folder) added one line in Monogame.Framework\Graphics\GraphicsExtensions.cs GetSize
+      public static int GetSize(this SurfaceFormat surfaceFormat)
+        {
+            switch (surfaceFormat)
+            {
+              ...
+                case SurfaceFormat.HdrBlendable:  //ADDED at line 817 in my branch to return 8
+                case SurfaceFormat.HalfVector4:
+                case SurfaceFormat.Rgba64:
+                case SurfaceFormat.Vector2:  
+                    return 8;
+   
 
 
 
